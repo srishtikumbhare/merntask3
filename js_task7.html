@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Train Animation</title>
+    <style>
+        #train {
+            position: absolute;
+            left: 0;
+            transition: left 2s linear;
+        }
+    </style>
+</head>
+<body>
+    <img id="train" src="./train.jpg" alt="Train" width="100">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        const train = document.getElementById("train");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+
+        let animationInterval;
+
+        startButton.addEventListener("click", () => {
+            if (!animationInterval) {
+                animationInterval = setInterval(moveTrain, 100);
+            }
+        });
+
+        stopButton.addEventListener("click", () => {
+            clearInterval(animationInterval);
+            animationInterval = null;
+        });
+
+        function moveTrain() {
+            const currentLeft = parseInt(train.style.left) || 0;
+            train.style.left = (currentLeft + 5) + "px";
+
+            if (currentLeft >= window.innerWidth) {
+                clearInterval(animationInterval);
+                animationInterval = null;
+            }
+        }
+    </script>
+</body>
+</html>

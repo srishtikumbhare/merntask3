@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function sortStringAlphabetically(inputString) {
+            // Convert the string to an array of characters, sort them, and join them back into a string
+            const sortedString = inputString.split('').sort().join('');
+
+            return sortedString;
+        }
+
+        // Example usage:
+        const inputString = 'webmaster';
+        const sortedString = sortStringAlphabetically(inputString);
+        console.log(sortedString); // Output: 'abeemrstw'
+
+    </script>
+
+
+</body>
+
+</html>

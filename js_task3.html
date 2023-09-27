@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication and Division Calculator</title>
+</head>
+<body>
+    <h1>Multiplication and Division Calculator</h1>
+    
+    <form id="calculator-form">
+        <label for="num1">Enter Number 1:</label>
+        <input type="number" id="num1" required>
+        <br>
+        <label for="num2">Enter Number 2:</label>
+        <input type="number" id="num2" required>
+        <br>
+        <button type="button" id="multiply-button">Multiply</button>
+        <button type="button" id="divide-button">Divide</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const calculatorForm = document.getElementById("calculator-form");
+            const num1Input = document.getElementById("num1");
+            const num2Input = document.getElementById("num2");
+            const multiplyButton = document.getElementById("multiply-button");
+            const divideButton = document.getElementById("divide-button");
+            const resultElement = document.getElementById("result");
+
+            multiplyButton.addEventListener("click", function () {
+                const num1 = parseFloat(num1Input.value);
+                const num2 = parseFloat(num2Input.value);
+
+                if (!isNaN(num1) && !isNaN(num2)) {
+                    const result = num1 * num2;
+                    resultElement.textContent = `Result of multiplication: ${result}`;
+                } else {
+                    resultElement.textContent = "Please enter valid numbers.";
+                }
+            });
+
+            divideButton.addEventListener("click", function () {
+                const num1 = parseFloat(num1Input.value);
+                const num2 = parseFloat(num2Input.value);
+
+                if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
+                    const result = num1 / num2;
+                    resultElement.textContent = `Result of division: ${result}`;
+                } else if (num2 === 0) {
+                    resultElement.textContent = "Division by zero is not allowed.";
+                } else {
+                    resultElement.textContent = "Please enter valid numbers.";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
